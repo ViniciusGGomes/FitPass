@@ -1,24 +1,26 @@
 import { describe, expect, it } from "vitest";
 import { RegisterUseCase } from "./register";
 import { compare } from "bcryptjs";
+import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-repository";
+import { UserAlreadyExistError } from "./Errors/user-already-exist-error";
 
 describe("register use case", () => {
-  it("should hash user password upon register", async () => {
-    const registerUseCase = new RegisterUseCase({
-      async findByEmail(email) {
-        return null;
-      },
+  it("should be able to register", async () => {
+    const inMemoryUsersRepository = new InMemoryUsersRepository();
+    const registerUseCase = new RegisterUseCase(inMemoryUsersRepository);
 
-      async create(data) {
-        return {
-          id: "user-1",
-          name: data.name,
-          email: data.email,
-          password_hash: data.password_hash,
-          created_at: new Date(),
-        };
-      },
+    const { user } = await registerUseCase.execute({
+      name: "John doe",
+      email: "johndoe@exemple.com",
+      password: "123456",
     });
+
+    expect(user.id).toEqual(expect.any(String));
+  });
+
+  it("should hash user password upon registration", async () => {
+    const inMemoryUsersRepository = new InMemoryUsersRepository();
+    const registerUseCase = new RegisterUseCase(inMemoryUsersRepository);
 
     const { user } = await registerUseCase.execute({
       name: "John doe",
@@ -32,5 +34,26 @@ describe("register use case", () => {
     );
 
     expect(isPasswordCorrectlyHashed).toBe(true);
+  });
+
+  it("should not be able to register with same email twice", async () => {
+    const inMemoryUsersRepository = new InMemoryUsersRepository();
+    const registerUseCase = new RegisterUseCase(inMemoryUsersRepository);
+
+    const email = "johndoe@exemple.com";
+
+    await registerUseCase.execute({
+      name: "John doe",
+      email,
+      password: "123456",
+    });
+
+    await expect(() =>
+      registerUseCase.execute({
+        name: "John doe",
+        email,
+        password: "123456",
+      })
+    ).rejects.toBeInstanceOf(UserAlreadyExistError);
   });
 });
