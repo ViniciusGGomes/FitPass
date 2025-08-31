@@ -3,11 +3,12 @@
 FitPass <-> inspired by GymPass app.
 
 # RFs (Requisitos Funcionais) - Funcionalidades que a aplicação deve oferecer
+
 - [x] Deve ser possível se cadastrar
 - [x] Deve ser possível se autenticar
 - [x] Deve ser possível obter o perfil de um usuário logado
 - [ ] Deve ser possível obter o número de check-ins realizados pelo usuário logado
-- [ ] Deve ser possível o usuário obter o seu histórico de check-ins 
+- [ ] Deve ser possível o usuário obter o seu histórico de check-ins
 - [ ] Deve ser possível o usuário buscar academias próximas
 - [ ] Deve ser possível o usuário buscar academias pelo nome
 - [ ] Deve ser possível o usuário realizar check-in em uma academia
@@ -17,8 +18,8 @@ FitPass <-> inspired by GymPass app.
 # RNs (Regras de negocio) - Condições ou restrições específicas que a aplicação deve seguir
 
 - [x] O usuário não pode se cadastrar com e-mail duplicado
-- [ ] O usuário não pode fazer 2 check-ins ao mesmo dia
-- [ ] O usuário não pode fazer check-in se não estiver perto (100) da academia.
+- [x] O usuário não pode fazer 2 check-ins ao mesmo dia
+- [x] O usuário não pode fazer check-in se não estiver perto (100) da academia.
 - [ ] O check-in só pode ser validado até 20 minutos após criado.
 - [ ] O check-in só pode ser validado por administradores
 - [ ] A academia só pode ser cadastrada por administradores
