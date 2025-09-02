@@ -1,4 +1,4 @@
-import { CheckInRepository } from "@/repositories/check-ins-repository";
+import { CheckInsRepository } from "@/repositories/check-ins-repository";
 import { CheckIn } from "@prisma/client";
 import { MaxNumberOfCheckInsError } from "./Errors/max-number-of-check-ins";
 import { GymsRepository } from "@/repositories/gyms-repository";
@@ -19,7 +19,7 @@ interface CheckInUseCaseResponse {
 
 export class CheckInUseCase {
   constructor(
-    private checkInsRepository: CheckInRepository,
+    private checkInsRepository: CheckInsRepository,
     private gymsRepository: GymsRepository
   ) {}
 
