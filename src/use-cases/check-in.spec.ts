@@ -19,10 +19,10 @@ describe("Check-in Use Case", () => {
     await gymsRepository.create({
       id: "gym-01",
       title: "",
-      description: "",
-      phone: "",
-      latitude: new Decimal(-23.5868031),
-      longitude: new Decimal(-46.6847268),
+      description: null,
+      phone: null,
+      latitude: -23.5868031,
+      longitude: -46.6847268,
     });
 
     vi.useFakeTimers();
