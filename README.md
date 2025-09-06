@@ -12,7 +12,7 @@ FitPass <-> inspired by GymPass app.
 - [x] Deve ser possível o usuário buscar academias próximas (até 10km)
 - [x] Deve ser possível o usuário buscar academias pelo nome
 - [x] Deve ser possível o usuário realizar check-in em uma academia
-- [] Deve ser possível validar o check-in de um usuário
+- [x] Deve ser possível validar o check-in de um usuário
 - [x] Deve ser possível cadastrar uma academia
 
 # RNs (Regras de negocio) - Condições ou restrições específicas que a aplicação deve seguir
@@ -20,7 +20,7 @@ FitPass <-> inspired by GymPass app.
 - [x] O usuário não pode se cadastrar com e-mail duplicado
 - [x] O usuário não pode fazer 2 check-ins ao mesmo dia
 - [x] O usuário não pode fazer check-in se não estiver perto (100) da academia.
-- [ ] O check-in só pode ser validado até 20 minutos após criado.
+- [x] O check-in só pode ser validado até 20 minutos após criado.
 - [ ] O check-in só pode ser validado por administradores
 - [ ] A academia só pode ser cadastrada por administradores
 
