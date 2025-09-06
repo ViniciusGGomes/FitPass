@@ -13,13 +13,13 @@ interface AuthenticatedUserCaseResponse {
 }
 
 export class AuthenticatedUseCase {
-  constructor(private userRepository: UsersRepository) {}
+  constructor(private usersRepository: UsersRepository) {}
 
   async execute({
     email,
     password,
   }: AuthenticatedUserCaseRequest): Promise<AuthenticatedUserCaseResponse> {
-    const user = await this.userRepository.findByEmail(email);
+    const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
       throw new InvalidCredentialsError();
