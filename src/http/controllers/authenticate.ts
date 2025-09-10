@@ -1,5 +1,5 @@
 import { InvalidCredentialsError } from "@/use-cases/Errors/invalid-credentials-error";
-import { makeAuthenticateUseCase } from "@/use-cases/Factories/make-authenticate-use-case";
+import { makeAuthenticateUseCase } from "@/use-cases/Factory/make-authenticate-use-case";
 import { FastifyRequest, FastifyReply } from "fastify";
 import { z } from "zod";
 
@@ -17,9 +17,22 @@ export async function authenticate(
   try {
     const authenticatedUseCase = makeAuthenticateUseCase();
 
-    await authenticatedUseCase.execute({
+    const { user } = await authenticatedUseCase.execute({
       email,
       password,
+    });
+
+    const token = await reply.jwtSign(
+      {},
+      {
+        sign: {
+          sub: user.id,
+        },
+      }
+    );
+
+    return reply.status(200).send({
+      token,
     });
   } catch (error) {
     if (error instanceof InvalidCredentialsError) {
@@ -27,6 +40,4 @@ export async function authenticate(
     }
     throw error;
   }
-
-  return reply.status(200).send();
 }
