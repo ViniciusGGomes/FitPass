@@ -14,12 +14,12 @@ describe("Authenticate (e2e)", () => {
   it("should be able to authenticate", async () => {
     await request(app.server).post("/users").send({
       name: "John Doe",
-      email: "jhondoe@exemple.com",
+      email: "johndoe@example.com",
       password: "123456",
     });
 
     const response = await request(app.server).post("/session").send({
-      email: "jhondoe@exemple.com",
+      email: "johndoe@example.com",
       password: "123456",
     });
 
