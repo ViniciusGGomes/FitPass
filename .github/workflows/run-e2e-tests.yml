@@ -9,7 +9,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:15
+        image: bitnami/postgresql
         ports:
           - 5432:5432
         env:
@@ -18,9 +18,9 @@ jobs:
           POSTGRESQL_DATABASE: apisolid
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: "npm"
