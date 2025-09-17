@@ -16,16 +16,11 @@ jobs:
           POSTGRES_USER: docker
           POSTGRES_PASSWORD: docker
           POSTGRES_DB: apisolid
-        options: >-
-          --health-cmd pg_isready -U docker
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v5
         with:
           node-version: 18
           cache: "npm"
