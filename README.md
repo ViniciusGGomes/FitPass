@@ -21,12 +21,12 @@ FitPass <-> inspired by GymPass app.
 - [x] O usuário não pode fazer 2 check-ins ao mesmo dia
 - [x] O usuário não pode fazer check-in se não estiver perto (100) da academia.
 - [x] O check-in só pode ser validado até 20 minutos após criado.
-- [ ] O check-in só pode ser validado por administradores
-- [ ] A academia só pode ser cadastrada por administradores
+- [x] O check-in só pode ser validado por administradores
+- [x] A academia só pode ser cadastrada por administradores
 
 # RNF (Requisitos não funcionais) - Características técnicas, que impactam o funcionamento do sistema
 
 - [x] A senha do usuário precisa estar criptografada
 - [x] Os dados da aplicação precisam estar persistidos em um banco Postgresql
 - [x] Todas listas de dados precisam estar paginadas com 20 itens por página
-- [ ] O usuário deve ser identificado por um JWT (JSON Web Token)
+- [x] O usuário deve ser identificado por um JWT (JSON Web Token)
